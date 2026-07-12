@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>VELORA — Journal</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<nav class="navbar">
+
+<div class="logo">
+VELORA
+</div>
+
+</nav>
+
+</header>
+
+
+
+<section class="about-preview">
+
+<p class="tag">
+JOURNAL
+</p>
+
+<h2>
+Thoughts, ideas and creative insights.
+</h2>
+
+</section>
+
+
+
+<section class="featured">
+
+<div class="projects" id="blogs">
+
+</div>
+
+</section>
+
+
+
+
+<script>
+
+
+fetch("cms/blog.json")
+
+.then(response => response.json())
+
+.then(posts => {
+
+
+const container =
+document.getElementById("blogs");
+
+
+posts.forEach(post => {
+
+
+container.innerHTML += `
+
+
+<div class="project">
+
+
+<div class="project-image"></div>
+
+
+<h3>
+${post.title}
+</h3>
+
+
+<p>
+${post.category}
+</p>
+
+
+<p>
+${post.description}
+</p>
+
+
+<small>
+${post.date}
+</small>
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+});
+
+
+</script>
+
+
+
+</body>
+
+</html>
